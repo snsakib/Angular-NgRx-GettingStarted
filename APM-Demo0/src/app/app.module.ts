@@ -17,12 +17,16 @@ import { PageNotFoundComponent } from './home/page-not-found.component';
 /* Feature Modules */
 import { UserModule } from './user/user.module';
 
+// NgRx
+import { StoreModule } from '@ngrx/store';
+
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(ProductData),
     UserModule,
+    StoreModule.forRoot({}),
     AppRoutingModule
   ],
   declarations: [
