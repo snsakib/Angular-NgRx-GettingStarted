@@ -18,7 +18,9 @@ import { PageNotFoundComponent } from './home/page-not-found.component';
 import { UserModule } from './user/user.module';
 
 // NgRx
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
+import { environment } from '../environments/environment';
 
 @NgModule({
   imports: [
@@ -27,7 +29,12 @@ import { StoreModule } from '@ngrx/store';
     HttpClientInMemoryWebApiModule.forRoot(ProductData),
     UserModule,
     StoreModule.forRoot({}),
-    AppRoutingModule
+    AppRoutingModule,
+    StoreDevtoolsModule.instrument({
+      name: 'AMP Demo App Devtools',
+      maxAge: 25,
+      logOnly: environment.production
+    })
   ],
   declarations: [
     AppComponent,
